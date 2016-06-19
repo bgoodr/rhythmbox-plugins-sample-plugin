@@ -3,7 +3,11 @@ Rhythmbox sample plugin
 
 ## Sample python plugin
 
-Here is what I did
+Here is what I did to create this plugin:
+
+Read most of the web page at:
+
+https://wiki.gnome.org/Apps/Rhythmbox/Plugins/WritingGuide
 
 Download the source for Rhythmbox 3.3 and copied the plugin source here
 
@@ -32,4 +36,42 @@ file into sample-python/
 
 Modify install.sh to generalize it for use in future python plugins
 (the install.sh had hardcoded names in it).
+
+Execute rhythmbox with debug filter to see the print statements (see why at https://wiki.gnome.org/Apps/Rhythmbox/Plugins/WritingGuide#Activation):
+
+    rhythmbox -D "sample python"
+
+But notice that they still do not show up. You have to enable the
+plugin under Tools/Plugins menu, click the checkbox. I found I had to
+click the checkbox multiple times before I started seeing output on
+the console:
+
+    brentg@wilddog:~/bgoodr/rhythmbox-plugins-sample-plugin/sample-python$ rhythmbox -D "sample"
+    (09:58:41) [0x182a2c0] [SamplePython.do_activate] /home/brentg/.local/share/rhythmbox/plugins/sample-python/sample-python.py:29: activating sample python plugin
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    
+    (rhythmbox:11782): Gtk-WARNING **: Duplicate child name in GtkStack: Add to Playlist
+    
+    (09:58:49) [0x182a2c0] [SamplePython.do_deactivate] /home/brentg/.local/share/rhythmbox/plugins/sample-python/sample-python.py:51: deactivating sample python plugin
+    /home/brentg/.local/share/rhythmbox/plugins/sample-python/sample-python.py:27: Warning: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+      self.source.delete_thyself()
+    (09:58:59) [0x182a2c0] [SamplePython.do_activate] /home/brentg/.local/share/rhythmbox/plugins/sample-python/sample-python.py:29: activating sample python plugin
+
+Notice that on the left side panel we see "Python Source"
+entry. Clicking on that shows nothing which I am guessing is to be
+expected for this sample plugin.
 
