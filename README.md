@@ -22,9 +22,14 @@ Remove the "_" in front of the keys inside the sample-python/sample-python.plugi
     _Name=Python Sample Plugin
     _Description=A sample plugin in Python with no features
 
-Copy the https://github.com/donaghhorgan/rhythmbox-plugins-open-containing-folder/blob/master/install.sh file into sample-python/
+Copy the
+https://github.com/donaghhorgan/rhythmbox-plugins-open-containing-folder/blob/master/install.sh
+file into sample-python/
 
     curl https://raw.githubusercontent.com/donaghhorgan/rhythmbox-plugins-open-containing-folder/master/install.sh > sample-python/install.sh
     chmod a+x sample-python/install.sh
     git add sample-python/install.sh
+
+Modify install.sh to generalize it for use in future python plugins
+(the install.sh had hardcoded names in it).
 
