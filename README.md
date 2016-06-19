@@ -11,3 +11,5 @@ cp -rp rhythmbox-3.3/sample-plugins/sample-python/ .
 
 Checked that in.
 
+Remove sample-python/Makefile.am and check that in.
+
