@@ -17,3 +17,7 @@ Rename the .in file to have the correct extension:
 
     git mv sample-python/sample-python.plugin.in sample-python/sample-python.plugin
 
+Remove the "_" in front of the keys inside the sample-python/sample-python.plugin file:
+
+    _Name=Python Sample Plugin
+    _Description=A sample plugin in Python with no features
